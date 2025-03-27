@@ -18,17 +18,35 @@ class Point:
         return f"[{self.x}, {self.y}]"
 
     def __repr__(self):
+        """
+        Return the official string representation of the Point object.
+        :return: A string representation identical to __str__
+        """
         return self.__str__() # Use the same way of printing as 'str'
 
     def distance_orig(self):
+        """
+        Calculate the distance of the point from the origin (x = 0, y = 0)
+        :return: distance from point
+        """
         return (self.x**2 + self.y**2)**0.5  # Sqrt of the sum of x
 
     def __gt__(self, other):
+        """
+        Compare two points based on their distance
+        :param other: other point to compare with
+        :return: True if the point is farther away from the other point
+        """
         my_distance = self.distance_orig()
         other_distance = other.distance_orig()
         return my_distance > other_distance
 
     def __eq__(self, other):
+        """
+        Compare two points on their distance from the origin
+        :param other: other point to compare with
+        :return: True if the points have the same distance from the origin
+        """
         my_distance = self.distance_orig()
         other_distance = other.distance_orig()
         return my_distance > other_distance
